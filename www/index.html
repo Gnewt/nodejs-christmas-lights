@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+        <h1>Color Selector</h1>
+        <p>Select a color below and hit the 'Go!' button to add it to the lights.</p>
+
+        <select id="colorSelector">
+            <option value="white">White</option>
+            <option value="black">Black</option>
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="cyan">Cyan</option>
+            <option value="magenta">Magenta</option>
+            <option value="yellow">Yellow</option>
+            <option value="purple">Purple</option>
+            <option value="orange">Orange</option>
+            <option value="warm white">Warm white</option>
+        </select>
+        <br /><br />
+        <button type="button" class="btn btn-primary" id="goButton">Go!</button>
+        </table>
+
+    </div><!-- /.container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+    <script>
+        $('#goButton').click(function(eventObject) {
+            var color = $('#colorSelector').val()
+            $.post('/api/', 'jsonData=' + JSON.stringify({color: color}));
+        });
+    </script>
+  </body>
+</html>
